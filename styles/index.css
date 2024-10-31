@@ -1,0 +1,46 @@
+/* @font-face {
+  font-family: Inter;
+  font-weight: 400;
+  src: local("Inter"), 
+    local("Inter-Regular"), 
+    url("/assets/fonts/Inter-Regular.woff2");
+}
+
+@font-face {
+  font-family: "Courier Prime";
+  font-weight: 400;
+  src: local("Courier Prime"),
+    local("CourierPrime"), 
+    local("CourierPrime Regular"), 
+    local("Courier Prime Regular"), 
+    url("/assets/fonts/CourierPrime-Regular.woff2");
+} */
+
+:root{
+  --accent-color: #472197;
+  --accent-hover-color: #4615b0;
+  --dark-color: #212121;
+  --light-color: #EEEEEE;
+  --secondary-light-color: #A4A4A4;
+  --text-font: Inter, sans-serif;
+  --number-font: "Courier Prime", serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: var(--dark-color);
+  color: var(--light-color)
+}
+
+p, a, span, .text {
+  font-family: var(--text-font);
+}
+
+.time {
+  font-family: var(--number-font);
+}
