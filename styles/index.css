@@ -1,4 +1,5 @@
-@font-face {
+/* For dev purposes when offline */
+/* @font-face {
   font-family: Inter;
   font-weight: 400;
   src: local("Inter"), 
@@ -14,16 +15,25 @@
     local("CourierPrime Regular"), 
     local("Courier Prime Regular"), 
     url("assets/fonts/CourierPrime-Regular.woff2");
-}
+} */
 
 :root{
   --accent-color: #472197;
   --accent-hover-color: #4615b0;
+  --accent-gradient-reverse: linear-gradient(to bottom right, #4c25a2, #44218e);
   --dark-color: #212121;
+  --dark-color: #1F1F1F;
   --light-color: #EEEEEE;
   --secondary-light-color: #A4A4A4;
   --text-font: Inter, sans-serif;
   --number-font: "Courier Prime", serif;
+  --section-bg-gradient-light-to-dark: linear-gradient(to top left, #1E1E1E, #232323);
+  --section-bg-gradient-dark-to-light: linear-gradient(to top left, #232323, #1E1E1E);
+  --shadow-effect: 5px 5px 20px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(255, 255, 255, 0.03); 
+  --shadow-effect-inset: inset 5px 5px 20px rgba(0, 0, 0, 0.3), inset -5px -5px 10px rgba(255, 255, 255, 0.03); 
+  --shadow-effect-inset-for-accent-bg: inset 5px 5px 20px rgba(0, 0, 0, 0.5), inset -5px -5px 10px rgba(255, 255, 255, 0.07); 
+  --shadow-effect-button: 5px 5px 10px 0px rgba(0, 0, 0, 0.2), -5px -5px 7px 0px rgba(255, 255, 255, 0.03); 
+  --shadow-effect-button-inset: inset 5px 5px 10px 0px rgba(0, 0, 0, 0.2), inset -5px -5px 7px 0px rgba(255, 255, 255, 0.03); 
 }
 
 * {
@@ -37,10 +47,199 @@ body{
   color: var(--light-color)
 }
 
-p, a, span, .text {
+p, a, span, .text, button {
   font-family: var(--text-font);
+}
+
+main{
+  display: grid;
+  grid-template-columns: 1fr 320px 1fr;
+  padding-top: 4rem;
+  column-gap: 4rem;
 }
 
 .time {
   font-family: var(--number-font);
+}
+
+.section {
+  box-shadow: var(--shadow-effect);
+  background: var(--section-bg-gradient-dark-to-light);
+}
+
+.small-section {
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.big-section {
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+#time-display{
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.bg-accent { background-color: var(--accent-color); }
+.bg-dark { background-color: var(--dark-color); }
+.bg-light { background-color: var(--light-color); }
+.bg-transparent { background-color: transparent; }
+
+.icon{
+  aspect-ratio: 1 / 1;
+  display: block;
+}
+
+.icon-button{
+  padding: 0.625rem 0.75rem;
+  border-radius: 8px;
+  display: block;
+}
+
+button{
+  outline: 0;
+  border: none;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+button:hover:disabled{
+  cursor: default;
+}
+
+.button-active{
+  background: var(--section-bg-gradient-light-to-dark);
+  box-shadow: var(--shadow-effect-button);
+}
+
+.button-inactive, button[disabled]{
+  background: var(--section-bg-gradient-dark-to-light);
+  box-shadow: var(--shadow-effect-button-inset);
+}
+
+.actions-wrapper{
+  margin-top: 3rem;
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+}
+
+.controls-wrapper{
+  display: flex;
+  gap: 0.75rem;
+}
+
+.lap-button{
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--secondary-light-color);
+  font-size: 0.75rem;
+  padding: 0.625rem 1rem;
+  border-radius: 8px;
+}
+
+#lap-icon{
+  width: 11px;
+}
+
+#play-icon {
+  position: relative;
+  left: 2px;
+}
+
+#laps-section{
+  color: var(--secondary-light-color);
+  font-size: 0.75rem;
+  margin: 2rem auto 0;
+}
+
+#left-side-wrapper{
+  display: flex;
+  justify-content: flex-end;
+}
+
+#left-side{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: fit-content;
+}
+
+#site-mode-section{
+  display: flex;
+  gap: 1rem;
+  width: fit-content;
+}
+
+.site-mode-option{
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  display: block;
+  border-radius: 8px;
+}
+
+.site-mode-option[selected="true"]{
+  color: var(--light-color);
+  background: var(--accent-gradient-reverse);
+  box-shadow: var(--shadow-effect-inset-for-accent-bg);
+}
+
+.site-mode-option[selected="false"]{
+  color: var(--secondary-light-color);
+  background: var(--section-bg-gradient-light-to-dark);
+  box-shadow: var(--shadow-effect-button);
+}
+
+#settings-section{
+  margin-top: 2rem;
+}
+
+#sound-setting{
+  font-size: 0.75rem;
+  color: var(--light-color);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#sound-setting p{
+  color: var(--light-color);
+}
+
+.icon-sound{
+  display: block;
+  padding: 6px;
+  border-radius: 50%;
+}
+
+#sound-switch{
+  width: 60px;
+  padding: 4px;
+  border-radius: 20px;
+  display: flex;
+}
+
+#sound-switch[state="on"]{
+  background: var(--accent-gradient-reverse);
+  box-shadow: var(--shadow-effect-inset-for-accent-bg);
+  justify-content: flex-end;
+}
+
+#sound-switch[state="off"]{
+  background: var(--section-bg-gradient-dark-to-light);
+  box-shadow: var(--shadow-effect-inset);
+  justify-content: flex-start;
+}
+
+#sound-switch[state="on"] .icon-sound {
+  background-color: var(--light-color);
+}
+
+#sound-switch[state="off"] .icon-sound {
+  background-color: var(--secondary-light-color);
 }
