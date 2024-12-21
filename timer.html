@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/shared.css">
-  <link rel="stylesheet" href="styles/stopwatch.css">
-  <title>Tempus - Stopwatch</title>
+  <link rel="stylesheet" href="styles/timer.css">
+  <title>Tempus - Timer</title>
   <link rel="shortcut icon" type="image/jpg" href="assets/favicon.png"/>
   <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,10 +20,10 @@
       </button>
       <nav class="small-section section">
         <a href="/">
-          <button class="site-mode-option" selected="true">Stopwatch</button>
+          <button class="site-mode-option" selected="false">Stopwatch</button>
         </a>
         <a href="/timer.html">
-          <button class="site-mode-option" selected="false">Timer</button>
+          <button class="site-mode-option" selected="true">Timer</button>
         </a>
       </nav>
     </div>
@@ -44,10 +44,10 @@
         <div id="left-side">
           <section id="site-mode-section" class="section small-section">
             <a href="/">
-              <button class="site-mode-option" selected="true">Stopwatch</button>
+              <button class="site-mode-option" selected="false">Stopwatch</button>
             </a>
             <a href="/timer.html">
-              <button class="site-mode-option" selected="false">Timer</button>
+              <button class="site-mode-option" selected="true">Timer</button>
             </a>
           </section>
           <section id="settings-section" class="section small-section">
@@ -64,29 +64,18 @@
         <section id="time-section" class="big-section section">
           <p id="time-display" class="time">00:00:00.0</p>
           <div class="actions-wrapper">
-            <div class="desktop-controls-wrapper">
-              <button id="play-button" class="icon-button">
+            <div class="controls-wrapper">
+              <button class="button-active icon-button">
                 <img id="play-icon" class="icon" src="assets/icons/play.svg" />
               </button>
-              <button id="pause-button" disabled class="icon-button">
+              <button disabled="true" class="icon-button">
                 <img class="icon" src="assets/icons/pause.svg" />
               </button>
-              <button id="stop-button" disabled class="icon-button">
+              <button disabled="true" class="icon-button">
                 <img class="icon" src="assets/icons/stop.svg" />
               </button>
             </div>
-            <div class="mobile-controls-wrapper">
-              <button id="mobile-play-button" class="icon-button">
-                <img id="play-icon" class="icon" src="assets/icons/play.svg" />
-              </button>
-              <button id="mobile-pause-button" disabled class="icon-button">
-                <img class="icon" src="assets/icons/pause.svg" />
-              </button>
-              <button id="mobile-stop-button" disabled class="icon-button">
-                <img class="icon" src="assets/icons/stop.svg" />
-              </button>
-            </div>
-            <button id="lap-button" disabled class="lap-button">
+            <button disabled="true" class="lap-button">
               <img id="lap-icon" class="icon" src="assets/icons/stopwatch.svg" />
               Lap
             </button>
@@ -105,6 +94,6 @@
     </p>
   </footer>
 </body>
-<script src="code/stopwatch.js"></script>
+<script src="code/timer.js"></script>
 <script src="code/shared.js"></script>
 </html>
