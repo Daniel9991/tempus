@@ -17,19 +17,19 @@ const DECISECONDS_PER_MINUTE = 600
 const DECISECONDS_PER_SECOND = 10
 const REFRESH_RATE = 100
 
-let time = 0
-let intervalId
-let laps = []
+let time: number = 0
+let intervalId: number
+let laps: string[] = []
 
-function formatNumToTwoPlaces(num){
-  return num < 10 ? `0${num}` : num
-}
+function formatNumToTwoPlaces(num: number): string{
+  return num < 10 ? `0${num}` : String(num)
+} 
 
-function updateDisplay(formatedTime){
+function updateDisplay(formatedTime: string){
   timeDisplay.textContent = formatedTime
 }
 
-function formatTimeForStopwatch(time){
+function formatTimeForDisplayStopwatch(time: number): string{
   if(time === 0) return "00:00:00.0"
 
   let hours = "00"
@@ -54,7 +54,7 @@ function formatTimeForStopwatch(time){
     rest = rest % DECISECONDS_PER_SECOND
   }
   if(rest > 0){
-    deciseconds = rest
+    deciseconds = String(rest)
   }
 
   return `${hours}:${minutes}:${seconds}.${deciseconds}`
@@ -71,7 +71,7 @@ function renderLapsSection(){
 
 function stopwatchHandler(){
   time += 1
-  const formattedTime = formatTimeForStopwatch(time)
+  const formattedTime = formatTimeForDisplayStopwatch(time)
   updateDisplay(formattedTime)
 }
 
@@ -106,7 +106,7 @@ function stop(){
   if(intervalId) clearInterval(intervalId)
   intervalId = undefined
   time = 0
-  const formattedTime = formatTimeForStopwatch(time)
+  const formattedTime = formatTimeForDisplayStopwatch(time)
   updateDisplay(formattedTime)
   playButton.removeAttribute("disabled")
   pauseButton.setAttribute("disabled", "true")
@@ -121,8 +121,7 @@ function stop(){
 }
 
 function markLap(){
-  console.log("Marking lap")
-  laps.push(formatTimeForStopwatch(time))
+  laps.push(formatTimeForDisplayStopwatch(time))
   renderLapsSection()
 }
 

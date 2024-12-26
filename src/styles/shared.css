@@ -4,7 +4,7 @@
   font-weight: 400;
   src: local("Inter"), 
     local("Inter-Regular"), 
-    url("../assets/fonts/Inter-Regular.woff2");
+    url("../../assets/fonts/Inter-Regular.woff2");
 }
 
 @font-face {
@@ -14,7 +14,7 @@
     local("CourierPrime"), 
     local("CourierPrime Regular"), 
     local("Courier Prime Regular"), 
-    url("../assets/fonts/CourierPrime-Regular.woff2");
+    url("../../assets/fonts/CourierPrime-Regular.woff2");
 }
 
 :root{
@@ -174,14 +174,18 @@ button:hover:disabled{
   cursor: default;
 }
 
-button, .button-active{
+button{
   background: var(--section-bg-gradient-light-to-dark);
   box-shadow: var(--shadow-effect-button);
 }
 
-.button-inactive, button[disabled]{
+button[disabled]{
   background: var(--section-bg-gradient-dark-to-light);
   box-shadow: var(--shadow-effect-button-inset);
+}
+
+button[disabled] img.icon{
+  opacity: 0.5;
 }
 
 #left-side-wrapper{

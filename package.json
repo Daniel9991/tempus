@@ -1,0 +1,16 @@
+{
+  "name": "tempus",
+  "version": "1.0.0",
+  "description": "Web stopwatch and timer",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "author": "Daniel Fernandez",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}

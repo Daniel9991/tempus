@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/shared.css">
-  <link rel="stylesheet" href="styles/stopwatch.css">
+  <link rel="stylesheet" href="src/styles/shared.css">
+  <link rel="stylesheet" href="src/styles/stopwatch.css">
   <title>Tempus - Stopwatch</title>
   <link rel="shortcut icon" type="image/jpg" href="assets/favicon.png"/>
   <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
   <main>
     <div id="nav-wrapper">
       <button state="closed" id="open-menu">
-        <img id="chevron-right-icon" src="assets/icons/chevron_right.svg" />
+        <img id="chevron-right-icon" src="assets/icons/chevron-right-active.svg" />
       </button>
       <nav class="small-section section">
         <a href="/">
@@ -33,7 +33,7 @@
           <div id="menu-sound-setting" class="section small-section">
             <p>Sound</p>
             <button id="sound-switch" state="off">
-              <img class="icon-sound" id="icon-sound-on" src="assets/icons/sound_on.svg">
+              <img class="icon-sound" id="icon-sound-on" src="assets/icons/sound-on-black.svg">
             </button>
           </div>
         </div>
@@ -54,7 +54,7 @@
             <div id="sound-setting">
               <p>Sound</p>
               <button id="sound-switch" state="off">
-                <img class="icon-sound" id="icon-sound-on" src="assets/icons/sound_on.svg">
+                <img class="icon-sound" id="icon-sound-on" src="assets/icons/sound-on-black.svg">
               </button>
             </div>
           </section>
@@ -66,28 +66,28 @@
           <div class="actions-wrapper">
             <div class="desktop-controls-wrapper">
               <button id="play-button" class="icon-button">
-                <img id="play-icon" class="icon" src="assets/icons/play.svg" />
+                <img id="play-icon" class="icon" src="assets/icons/play-active.svg" />
               </button>
               <button id="pause-button" disabled class="icon-button">
-                <img class="icon" src="assets/icons/pause.svg" />
+                <img class="icon" src="assets/icons/pause-active.svg" />
               </button>
               <button id="stop-button" disabled class="icon-button">
-                <img class="icon" src="assets/icons/stop.svg" />
+                <img class="icon" src="assets/icons/stop-active.svg" />
               </button>
             </div>
             <div class="mobile-controls-wrapper">
               <button id="mobile-play-button" class="icon-button">
-                <img id="play-icon" class="icon" src="assets/icons/play.svg" />
+                <img id="play-icon" class="icon" src="assets/icons/play-active.svg" />
               </button>
               <button id="mobile-pause-button" disabled class="icon-button">
-                <img class="icon" src="assets/icons/pause.svg" />
+                <img class="icon" src="assets/icons/pause-active.svg" />
               </button>
               <button id="mobile-stop-button" disabled class="icon-button">
-                <img class="icon" src="assets/icons/stop.svg" />
+                <img class="icon" src="assets/icons/stop-active.svg" />
               </button>
             </div>
             <button id="lap-button" disabled class="lap-button">
-              <img id="lap-icon" class="icon" src="assets/icons/stopwatch.svg" />
+              <img id="lap-icon" class="icon" src="assets/icons/stopwatch-active.svg" />
               Lap
             </button>
           </div>
@@ -105,6 +105,6 @@
     </p>
   </footer>
 </body>
-<script src="code/stopwatch.js"></script>
-<script src="code/shared.js"></script>
+<script src="dist/stopwatch.js"></script>
+<script src="dist/shared.js"></script>
 </html>
