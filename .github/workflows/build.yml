@@ -1,18 +1,15 @@
-name: Build project
+name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-  hello:
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Say hello
-        run: echo "Hello"
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
@@ -25,13 +22,21 @@ jobs:
       - name: Build code
         id: build
         run: npm run build
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Remove node_modules
+        run: rm -r ./node_modules
       - name: Upload static files as artifact
         id: deployment
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
         with:
-          path: dist/
+          path: ./
 
   deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
